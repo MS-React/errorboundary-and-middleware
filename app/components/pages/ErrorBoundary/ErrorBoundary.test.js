@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 describe('<ErrorBoundary /> component', () => {
   function setup(props) {
-    return shallow(<ErrorBoundary 
+    return shallow(<ErrorBoundary
       {...props}
     />);
   }
@@ -16,7 +16,7 @@ describe('<ErrorBoundary /> component', () => {
     };
 
     // Act
-    const wrapper = setup();
+    const wrapper = setup({});
 
     // Assert
     expect(wrapper.instance().state).toEqual(expectedState);
@@ -24,7 +24,7 @@ describe('<ErrorBoundary /> component', () => {
 
   it('should catch components errors', () => {
     // Arrange
-    const wrapper = setup();
+    const wrapper = setup({});
     const error = {};
     const info = 'some info';
     const expectedState = {
@@ -33,7 +33,7 @@ describe('<ErrorBoundary /> component', () => {
 
     // Act
     wrapper.instance().componentDidCatch(error, info);
-    
+
     // Assert
     expect(wrapper.instance().state).toEqual(expectedState);
   });
