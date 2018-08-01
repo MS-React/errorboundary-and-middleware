@@ -52,3 +52,15 @@ export default ErrorBoundary;
 This is not a concept strictly taken from any recipe, it's just an idea of intercepting redux action which meaning is that something failed and do something with it's information, in this case to call the error service and keep action creators agnostic from the existence of it.
 
 ### Middleware source code
+
+```
+const errorsMiddleware = (/** store */) => next => action => {
+  if (action.type.toLowerCase().includes('failed')) {
+    errorService.logErrors(action.payload);
+  }
+  next(action);
+};
+
+export default errorsMiddleware;
+```
+With this approach we need to use the convention to use the **failed** word on actions with that meaning, so when something has failed e.g. a request to the serverm, and we dispatch the *...failed* action, this middleware will call the error service and then call the `next action handler
