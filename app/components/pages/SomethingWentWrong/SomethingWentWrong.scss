@@ -1,0 +1,135 @@
+$color-primary: #30A9DE;
+$color-secondary: #30A9DE;
+$color-tertiary: #30A9DE;
+$color-primary-light: #6AAFE6;
+$color-primary-dark: #8EC0E4;
+$background : #D4DFE6;
+$font-color: #274C5E;
+$distance: 1000px;
+
+body {
+  overflow: hidden;
+}
+
+.sww {
+
+  &--container {
+    background: $background;
+    min-height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+
+  &--wrapper {
+    height: 290px;
+    left: 50%;
+    margin: -145px 0 0 -210px;
+    position: absolute;
+    top: 50%;
+    width: 420px;
+  }
+
+  &--main-title {
+    display: block;
+    font-size: 2rem;
+    font-weight: lighter;
+    text-align: center;
+  }
+
+  &--main-description {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    margin: 0 auto;
+    max-width: 50%;
+  }
+
+  &--main-graphic {
+    position: relative;
+  }
+
+  &--cog {
+    animation: CogAnimation 5s infinite;
+    fill: $color-primary-light;
+    height: 10rem;
+    transition: easeInOutQuint();
+    width: 10rem;
+  }
+
+  &--spanner {
+    animation: SpannerAnimation 4s infinite;
+    fill: $color-primary-dark;
+    height: 10rem;
+    left: 20%;
+    position: absolute;
+    top: 10%;
+    transform: rotate(20deg);
+    width: 10rem;
+  }
+
+  &--hummingbird {
+    fill: $color-primary;
+    height: 3rem;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+  }
+}
+
+@keyframes CogAnimation {
+  0% {transform: rotate(0deg);}
+
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes SpannerAnimation {
+  0% {
+    transform:
+    translate3d(20px, 20px, 1px)
+    rotate(0deg);
+  }
+
+  10% {
+    transform:
+    translate3d(-$distance, $distance, 1px)
+    rotate(180deg);
+  }
+
+  15% {
+    transform:
+    translate3d(-$distance, $distance, 1px)
+    rotate(360deg);
+  }
+
+  20% {
+    transform:
+    translate3d($distance, -$distance, 1px)
+    rotate(180deg);
+  }
+
+  30% {
+    transform:
+    translate3d(-$distance, $distance, 1px)
+    rotate(360deg);
+  }
+
+  40% {
+    transform:
+    translate3d($distance, -$distance, 1px)
+    rotate(360deg);
+  }
+
+  50% {
+    transform:
+    translate3d(-$distance, $distance, 1px)
+    rotate(180deg);
+  }
+
+  100% {
+    transform:
+    translate3d(0, 0px, 0px)
+    rotate(360deg);
+  }
+}
