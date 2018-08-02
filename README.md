@@ -63,6 +63,11 @@ npm run lint
 npm run sass-lint
 ```
 
+**build from production**
+```ssh
+npm run build
+```
+
 
 # Error Boundary and Redux Error Middleware
 
